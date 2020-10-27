@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Gallery 구현</title>
+  <link rel="stylesheet" href="css/gallery.css">
+</head>
+<body>
+  <div class="container">
+    <img src="http://placehold.it/150x100">
+    <img src="http://placehold.it/150x100">
+    <img src="http://placehold.it/150x100" class="big">
+    <img src="http://placehold.it/150x100" class="big">
+    <img src="http://placehold.it/150x100">
+    <img src="http://placehold.it/150x100">
+    <img src="http://placehold.it/150x100">
+    <img src="http://placehold.it/150x100">
+    <img src="http://placehold.it/150x100">
+  </div>
+  <header>
+    <button id="menu-button">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </button>
+    <h4>왼쪽 버튼을 누르렴</h4>
+  </header>
+
+  <nav id="side-menu" class="hidden text2">
+    <ul>
+      <li><a href="./page1.html">편지</a></li>
+    </div>
+      <br>
+      <li><a href="./page2.html">사진</a></li>
+      <br>
+      <li><a href="./index.html">home</a></li>
+      
+    </ul>
+  </nav>
+ 
+
+  <script>
+    // javascript 코드(다음 주 강의부터 다루게 됨)
+    let hidden = true;
+    const menuButton = document.getElementById('menu-button');
+    const sideMenu = document.getElementById('side-menu');
+
+    menuButton.addEventListener('click', () => {
+      if (hidden) {
+        sideMenu.classList.remove('hidden');
+        hidden = false;
+      } else {
+        sideMenu.classList.add('hidden');
+        hidden = true;
+      }
+    });
+  </script>
+</body>
+</html>
