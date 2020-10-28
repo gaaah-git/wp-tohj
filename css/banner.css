@@ -2,31 +2,15 @@ body {
     background-image: url('../image/01.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    
 }
+
 
 body > *{
-    position: absolute;
+  position: absolute;
 }
 
-body>h1 {
-    top: 80px;
-    left: 50px;
-    color: white;
-    animation-name: banner-title;
-    animation-duration: 1.5s;
-    animation-timing-function: ease-out;
-}
-
-body>p {
-    top: 150px;
-    left: 60px;
-    width: 40%;
-    color: #eee;
-    animation-name: banner-content;
-    animation-duration: 3s;
-}
-
-@keyframes banner-title {
+@keyframes harry {
     from {
         left: -50%;
     }
@@ -35,7 +19,7 @@ body>p {
     }
 }
 
-@keyframes banner-content {
+@keyframes potter {
     from {
         opacity: 0;
     }
@@ -53,7 +37,7 @@ body>p {
     top: 150px;
     left: 400px;
     color: #eee;
-    animation-name: banner-title;
+    animation-name: harry;
     animation-duration: 3s;
     animation-timing-function: ease-out;
 
@@ -66,7 +50,7 @@ body>p {
     left: 500px;
     width: 40%;
     color: white;
-    animation-name: banner-content;
+    animation-name: potter;
     animation-duration: 10s;}
 
 .text2 {
