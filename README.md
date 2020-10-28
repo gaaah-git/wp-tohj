@@ -142,3 +142,100 @@ color:white;
           </script>
 ```
 
+## 움직이는 글씨
+#### !css에서!
+```c
+body > *{
+  position: absolute;
+}
+
+@keyframes harry {
+    from {
+        left: -50%;
+    }
+    to {
+        left: 400px;
+    }
+}
+
+@keyframes potter {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+
+.text {
+    font-size: 7rem;
+    text-align: center;
+    color: #eee;
+    top: 150px;
+    left: 400px;
+    color: #eee;
+    animation-name: harry;
+    animation-duration: 3s;
+    animation-timing-function: ease-out;
+
+}
+
+.text1 {
+    font-size: 2.5rem;
+    text-align: center;
+    top: 450px;
+    left: 500px;
+    width: 40%;
+    color: white;
+    animation-name: potter;
+    animation-duration: 10s;}
+```
+#### !html 에서!
+```c
+<div class="text">Happy BirthDAY</div>
+<div class="text1">안녕, 희진 생일 축하해!</div>
+```
+css에서  
+@keyframes harry 로 이름을 줌  
+animation-name: harry;으로 하면 harry에 해당하는 작동을 함!
+
+## grip
+```c
+css에서  
+
+.container {
+    display: grid;
+    width: 1200px;
+    grid-template-columns: repeat(4, 300px);
+    grid-auto-rows: 400px;
+    grid-auto-flow: row dense;
+    margin: 300px auto;
+  }
+  
+  img {
+    width: 100%;
+    height: 100%;
+    transition-duration: 500ms;
+    opacity: 1;
+  }
+  
+  img:hover {
+    transform: scale(1.3);
+    opacity: 1;
+    z-index: 1;
+}
+```
+```c
+ <div class="container">
+    <img src=./image/11.jpg>
+    <img src=./image/12.jpg>
+    <img src=./image/13.jpg>
+    <img src=./image/14.jpg>
+    <img src=./image/15.jpg>
+    <img src=./image/16.jpg>
+    <img src=./image/17.jpg>
+    <img src=./image/18.jpg>
+  </div>
+  ```
