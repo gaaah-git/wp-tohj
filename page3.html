@@ -15,14 +15,21 @@
             <h1>주소 검색</h1>
             <form id="form">
                 <input type="text" name="keyword" id="keyword" placeholder="검색어 입력"><br>
-                <br><br><br>
+                <br>
                 <button type="submit" width="300">검색</button>
             </form>
             <ul id="address-list"></ul>
         </div>
+
+
+
+
+
+
+
         <div class="flex-item">
             <h3>입력</h3>
-                <form id="sign-up">
+            <form id="sign-up">
                 <label for="user-id">우편번호 입력</label><br>
                 <br>
                 <input type="text" name="userId" id="user-id"><br>
@@ -93,6 +100,31 @@
                 addressList.appendChild(li);
             });
         }
+
+
+
+
+
+
+        const form = document.querySelector('#sign-up');
+        form.onsubmit = function () {
+            const userId = document.querySelector('#user-id').value;
+            const password = document.querySelector('#password').value;
+            const confirmPassword = document.querySelector('#confirm-password').value;
+
+            if (!userId.trim()) {
+                alert('우편번호를 입력해주세요.');
+                return false;
+            }
+            else if(!password) {
+                alert('상세주소를 입력해주세요.');
+                return false;
+            }
+
+        };
+
+
+
 
 
 

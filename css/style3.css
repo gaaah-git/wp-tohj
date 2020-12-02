@@ -12,22 +12,24 @@ body {
 
 .flex-box {
   display: flex;
+  align-items: stretch;
+
   justify-content: space-around;
   background-color: white;
   padding: 100px 20px;
   margin: 50px 50px;
   width: 1800px;
   height: 800px;
-  opacity: 0.7;
+  opacity: 0.85;
   border-radius: 60px 0 100px 0;
 }
 
 .flex-item {
-  padding: 100px 80px;
-  width: 800px;
+  padding: 100px 280px;
+  width: 600px;
   height: 700px;
   margin: 10px;
-  background-color: cornflowerblue;
+  
 }
 
 .text {
