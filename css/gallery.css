@@ -4,27 +4,26 @@ body {
   background-size: cover;
 }
 
-  
-  .container {
-    display: grid;
-    width: 1200px;
-    grid-template-columns: repeat(4, 300px);
-    grid-auto-rows: 400px;
-    grid-auto-flow: row dense;
-    margin: 120px auto;
-  }
-  
-  img {
-    width: 100%;
-    height: 100%;
-    transition-duration: 500ms;
-    opacity: 1;
-  }
-  
-  img:hover {
-    transform: scale(1.3);
-    opacity: 1;
-    z-index: 1;
+.container {
+  display: grid;
+  width: 1200px;
+  grid-template-columns: repeat(4, 300px);
+  grid-auto-rows: 400px;
+  grid-auto-flow: row dense;
+  margin: 120px auto;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  transition-duration: 500ms;
+  opacity: 1;
+}
+
+img:hover {
+  transform: scale(1.3);
+  opacity: 1;
+  z-index: 1;
 }
 
 img.big {
@@ -35,86 +34,80 @@ img.big {
 .text2 {
   font-size: 2rem;
   text-align: center;
-  color : white;
+  color: white;
 }
 
 header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    box-sizing: border-box;
-    height: 60px;
-    border-bottom: 1px solid black;
-    align-items: center;
-    background-color: rgb(209, 135, 135);
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
-    z-index: 10;
-    opacity: 0.8
-  }
-  
-  
-  
-  
-  #menu-button {
-    width: 40px;
-    border: none;
-    background-color: transparent;
-    padding: 10px;
-    cursor: pointer;
-    margin-right: 2em;
-    
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  box-sizing: border-box;
+  height: 60px;
+  border-bottom: 1px solid black;
+  align-items: center;
+  background-color: rgb(209, 135, 135);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+  opacity: 0.8
+}
 
-    
-  }
-  
-  #menu-button:focus {
-    outline: none;
-  }
-  
-  #menu-button > .bar {
-    width: 100%;
-    height: 3px;
-    background-color: black;
-    border-radius: 1.5px;
-    margin: 3px auto;
-  }
-  
-  #side-menu {
-    position: fixed;
-    display: flex;
-    justify-content: space-around;
-    top: 60px; /* header의 높이 다음에 나올 수 있도록 */
+#menu-button {
+  width: 40px;
+  border: none;
+  background-color: transparent;
+  padding: 10px;
+  cursor: pointer;
+  margin-right: 2em;
+}
+
+#menu-button:focus {
+  outline: none;
+}
+
+#menu-button>.bar {
+  width: 100%;
+  height: 3px;
+  background-color: black;
+  border-radius: 1.5px;
+  margin: 3px auto;
+}
+
+#side-menu {
+  position: fixed;
+  display: flex;
+  justify-content: space-around;
+  top: 60px;
+  /* header의 높이 다음에 나올 수 있도록 */
   left: 0;
   bottom: 0;
   border-right: 1px soli black;
-  background-color:rgb(128, 41, 41);
+  background-color: rgb(128, 41, 41);
   width: 180px;
   padding: 10px 20px;
   box-shadow: 1px 0 2px rgba(0, 0, 0, 0.4);
   transition-duration: 500ms;
-  
 }
 
 #side-menu.hidden {
   left: -100%;
 }
 
-#side-menu > ul {
+#side-menu>ul {
   list-style: none;
 }
 
-#side-menu > ul > li {
-    margin: 20px 0;
-  }
-  
-
-#side-menu > ul > li > a {
-  text-decoration: none;
-  color:white;
+#side-menu>ul>li {
+  margin: 20px 0;
 }
-#side-menu > ul > li > a:hover {
-    font-weight: bold;
-    color: #222;
-  }
+
+#side-menu>ul>li>a {
+  text-decoration: none;
+  color: white;
+}
+
+#side-menu>ul>li>a:hover {
+  font-weight: bold;
+  color: #222;
+}
