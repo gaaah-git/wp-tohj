@@ -1,22 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>편지읽음</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(21, 56, 21);
+            
+        }
+        .box {
+            margin-top: 200px;
+            margin-left: 500px;
+
+        }
+    </style>
+    <link rel="stylesheet" href="css/style1.css">
 </head>
+
 <body>
-    <nav class="harry">
-     
-        </div>
-       
-        <div class="menu-box">
-            
-            <div class="menu-item text">
-                <a href="./page3.html">주소 입력하러 가기</a>
-            </div>
-            
-        </div>
+    <header>
+        <button id="menu-button">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </button>
+        <h5>Happy Birthday</h5>
+    </header>
+
+    <nav id="side-menu" class="hidden">
+        <ul>
+
+            <li><a href="./page1.html">photo</a></li>
+            <li><a href="./page2.html">gift</a></li>
+
+            <li><a href="./index.html">letter</a></li>
+
+
+
+        </ul>
+    </nav>
+
+    <script>
+
+        let hidden = true;
+        const menuButton = document.getElementById('menu-button');
+        const sideMenu = document.getElementById('side-menu');
+
+        menuButton.addEventListener('click', () => {
+            if (hidden) {
+                sideMenu.classList.remove('hidden');
+                hidden = false;
+            } else {
+                sideMenu.classList.add('hidden');
+                hidden = true;
+            }
+        });
+    </script>
+    <div class="box">
+        <video controls height="500">
+            <source src="./video/01.mp4" type="video/mp4">
+        </video>
+    </div>
+
+
 </body>
+
 </html>

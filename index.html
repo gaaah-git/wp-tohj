@@ -14,49 +14,49 @@
         }
     </style>
     <link rel="stylesheet" href="css/style1.css">
-
 </head>
 
 <body>
     <header>
         <button id="menu-button">
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
         </button>
         <h5>Happy Birthday</h5>
-      </header>
-    
-      <nav id="side-menu" class="hidden">
-        <ul>
-    
-          <li><a href="./index.html">처음으로</a></li>
-          <li><a href="./algebra.html">Algebra</a></li>
-          
-          <li><a href="./2019.html">2019족보</a></li>
-          <li><a href="./test.html">임용기출(ring + field)</a></li>
-    
-    
-        </ul>
-      </nav>
+    </header>
 
-      <script>
+    <nav id="side-menu" class="hidden">
+        <ul>
+
+            <li><a href="./page1.html">photo</a></li>
+            <li><a href="./page2.html">gift</a></li>
+
+            <li><a href="./index.html">letter</a></li>
+            
+
+
+        </ul>
+    </nav>
+
+    <script>
 
         let hidden = true;
         const menuButton = document.getElementById('menu-button');
         const sideMenu = document.getElementById('side-menu');
-    
-        menuButton.addEventListener('click', () => {
-          if (hidden) {
-            sideMenu.classList.remove('hidden');
-            hidden = false;
-          } else {
-            sideMenu.classList.add('hidden');
-            hidden = true;
-          }
-        });
-      </script>
-</body>
 
+        menuButton.addEventListener('click', () => {
+            if (hidden) {
+                sideMenu.classList.remove('hidden');
+                hidden = false;
+            } else {
+                sideMenu.classList.add('hidden');
+                hidden = true;
+            }
+        });
+    </script>
+
+
+</body>
 
 </html>

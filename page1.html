@@ -1,69 +1,107 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <title>가흔웹</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(42, 71, 36);
+
+        }
+        * {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    display: grid;
+    width: 1200px;
+    grid-template-columns: repeat(4, 300px);
+    grid-auto-rows: 400px;
+    grid-auto-flow: row dense;
+    margin: 20px auto;
+  }
+  
+  
+  img {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+  }
+  
+  img:hover {
+    transform: scale(1.3);
+    opacity: 1;
+    z-index: 1;
+}
+.box{
+  width: 1600px;
+  height: 800px;
+  margin-top: 100px;
+  margin-left: 300px;
+}
+    </style>
+    <link rel="stylesheet" href="css/style1.css">
 </head>
 
 <body>
-  <nav class="harry">
-    <div class="box text">
-      &nbsp; 안녕, 언니 생일 축하해!<br>
-      하필 생일날 시험이라니 교수님이 잘못했다..ㅠㅠ<br>
-      항상 말하는 거지만 나 잘 챙겨주고 고민들어줘서 너무 고마워! <br>
-      언니랑 친구되어서 너무 좋아ㅎ.ㅎ<br>
-        생일버프로 석학 시험도 잘 보구, 우리 다음주에 교생도 잘 다녀오자!<br>
-        언니도 힘들거나 고민있으면 항상 나한테 말하구!!<br>
-        생일 너무너무 축하해😉
+    <header>
+        <button id="menu-button">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </button>
+        <h5>
+          Happy Birthday
+        </h5>
+    </header>
+
+    <nav id="side-menu" class="hidden">
+        <ul>
+
+          <li><a href="./page1.html">photo</a></li>
+          <li><a href="./page2.html">gift</a></li>
+
+          <li><a href="./index.html">letter</a></li>
 
 
+        </ul>
+    </nav>
+
+    <script>
+
+        let hidden = true;
+        const menuButton = document.getElementById('menu-button');
+        const sideMenu = document.getElementById('side-menu');
+
+        menuButton.addEventListener('click', () => {
+            if (hidden) {
+                sideMenu.classList.remove('hidden');
+                hidden = false;
+            } else {
+                sideMenu.classList.add('hidden');
+                hidden = true;
+            }
+        });
+    </script>
 
 
-    </div>
+<body>
+  <div class="container box">
+      <img src=./image/11.jpg>
+      <img src=./image/12.jpg>
+      <img src=./image/13.jpg>
+      <img src=./image/14.jpg>
+      <img src=./image/15.jpg>
+      <img src=./image/16.jpg>
+      <img src=./image/17.jpg>
+      <img src=./image/18.jpg>
 
 
+  </div>
 
-  </nav>
-  <header>
-    <button id="menu-button">
-      <div class="bar"></div>
-      <div class="bar"></div>
-      <div class="bar"></div>
-    </button>
-    <h4>왼쪽 버튼을 누르렴</h4>
-  </header>
-
-  <nav id="side-menu" class="hidden text2">
-    <ul>
-      <li><a href="./page1.html">편지</a></li>
-    </div>
-      <br>
-      <li><a href="./page2.html">사진</a></li>
-      <br>
-      <li><a href="./index.html">home</a></li>
-      
-    </ul>
-  </nav>
- 
-
-  <script>
-    // javascript 코드(다음 주 강의부터 다루게 됨)
-    let hidden = true;
-    const menuButton = document.getElementById('menu-button');
-    const sideMenu = document.getElementById('side-menu');
-
-    menuButton.addEventListener('click', () => {
-      if (hidden) {
-        sideMenu.classList.remove('hidden');
-        hidden = false;
-      } else {
-        sideMenu.classList.add('hidden');
-        hidden = true;
-      }
-    });
-  </script>
 </body>
 
 </html>

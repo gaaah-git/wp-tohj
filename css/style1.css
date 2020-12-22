@@ -11,9 +11,9 @@
     display: flex;
     box-sizing: border-box;
     height: 60px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid rgb(112, 58, 58);
     align-items: center;
-    background-color: #fff;
+    background-color: rgb(124, 45, 45);
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
     z-index: 10;
   }
@@ -53,12 +53,13 @@
     top: 60px; 
     left: 0;
     bottom: 0;
-    border-right: 1px solid burlywood;
-    background-color: rgb(241, 221, 155);
+    border-right: 1px solid rgb(71, 44, 35);
+    background-color: rgb(146, 110, 90);
     width: 200px;
     padding: 10px 20px;
-    box-shadow: 1px 0 2px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
     transition-duration: 500ms;
+    
   }
   
   #side-menu.hidden {
