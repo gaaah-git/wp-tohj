@@ -1,239 +1,282 @@
-# 웹 응용 프로그래밍 9주차
-## 7주차 입력값 누적 표 만들기
+## 사이드 바 만들기(집어넣었다 뺐다 가능)
 ```c
+*****html에*****
+
+<link rel="stylesheet" href="css/style1.css">
+</head>
+
 <body>
-  <h1 class="main-title">Simple Blog</h1>
-  <ul class="blog-container">
-    <li>
-      <h4 class="item-title">Sample</h4>
-      <p>Sample Post</p>
-    </li>
-  </ul>
-  <hr>
-  <div class="input-container">
-    <div class="control-wrapper">
-      <label>제목</label>
-      <input type="text" id="title" placeholder="제목을 입력해주세요.">
-    </div>
-    <div class="control-wrapper">
-      <textarea id="content" placeholder="내용을 입력해주세요."></textarea>
-    </div>
-    <button id="button">게시하기</button>
-  </div>
-  <script src="assets/js/app.js"></script>
-</body>
+    <header>
+        <button id="menu-button">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </button>
+        <h5>Happy Birthday</h5>
+    </header>
+
+    <nav id="side-menu" class="hidden">
+        <ul>
+
+            <li><a href="./page1.html">photo</a></li>
+            <li><a href="./page2.html">gift</a></li>
+
+            <li><a href="./index.html">letter</a></li>
 
 
 
+        </ul>
+    </nav>
 
-*****css에서*****
+    <script>
 
-/* 제목 스타일 */
-.main-title {
-  text-align: center;
-  margin-bottom: 2em;
-}
+        let hidden = true;
+        const menuButton = document.getElementById('menu-button');
+        const sideMenu = document.getElementById('side-menu');
 
-/* 컨텐츠 관련 스타일 */
-ul {
-  list-style: none;
-  width: 1000px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
-
-li {
-  width: 300px;
-  border: 1px solid #ddd;
-  margin: 10px;
-  padding: 1.5em;
-}
-
-li > .item-title {
-  margin-bottom: 2em;
-}
-/* 입력 컨트롤 관련 스타일 */
-.input-container {
-  width: 1000px;
-  margin: 1em auto;
-}
-
-.control-wrapper {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  margin: 0 0 1em;
-}
-
-label {
-  margin-right: 1em;
-}
-
-input, textarea {
-  flex-grow: 1;
-  padding: 0.5em 1em;
-}
-
-textarea {
-  display: block;
-  width: 100%;
-  height: 15em;
-}
-
-button {
-  display: block;
-  padding: 0.5em 1em;
-  width: 100%;
+        menuButton.addEventListener('click', () => {
+            if (hidden) {
+                sideMenu.classList.remove('hidden');
+                hidden = false;
+            } else {
+                sideMenu.classList.add('hidden');
+                hidden = true;
+            }
+        
+    </script>
+    
+    *****style1.css에*****
+    
+    * {
+  margin: 0;
+  padding: 0;
 }
 
 
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    box-sizing: border-box;
+    height: 60px;
+    border-bottom: 1px solid rgb(112, 58, 58);
+    align-items: center;
+    background-color: rgb(124, 45, 45);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+    z-index: 10;
+  }
+  
+  main {
+    margin: 60px auto 0; 
+    padding: 2em 4em;
+  }
+  main > p {
+    margin-top: 2em;
+    text-align: justify;
+  }
+  
+  #menu-button {
+    width: 40px;
+    border: none;
+    background-color: transparent;
+    padding: 10px;
+    cursor: pointer;
+    margin-right: 2em;
+  }
+  
+  #menu-button:focus {
+    outline: none;
+  }
+  
+  #menu-button > .bar {
+    width: 100%;
+    height: 3px;
+    background-color: #333;
+    border-radius: 1.5px;
+    margin: 3px auto;
+  }
+  
+  #side-menu {
+    position: fixed;
+    top: 60px; 
+    left: 0;
+    bottom: 0;
+    border-right: 1px solid rgb(71, 44, 35);
+    background-color: rgb(146, 110, 90);
+    width: 200px;
+    padding: 10px 20px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+    transition-duration: 500ms;
+    z-index: 1;
+    
+  }
+  
+  #side-menu.hidden {
+    left: -100%;
+  }
+  
+  #side-menu > ul {
+    list-style: none;
+  }
+  
+  #side-menu > ul > li {
+    margin: 20px 0;
+  }
+  
+  #side-menu > ul > li > a {
+    text-decoration: none;
+    color: black;
+  }
+  #side-menu > ul > li > a:hover {
+    font-weight: bold;
+    color: #222;
+  }
 
-*****java script에서*****
-const blogContainer = document.querySelector('.blog-container');
-const titleControl = document.querySelector('#title');
-const contentControl = document.getElementById('content');
-const button = document.getElementById('button');
-
-button.addEventListener('click', () => {
-  const title = titleControl.value;
-  const content = contentControl.value;
-
-  if (!title.trim() || !content.trim()) return;
-
-  const li = makeBlogElement(title, content);
-  blogContainer.appendChild(li);
-  titleControl.value = '';
-  contentControl.value = '';
-});
-
-function makeBlogElement(title, content) {
-  const li = document.createElement('li');
-
-  li.innerHTML = `<h4 class="item-title">${title}</h4>
-      <p>${content.replace('\n', '<br>')}</p>`
-
-  return li;
-}
 ```
-## 스탑워치 만들기
+### 이후에 Happy Birhday를 추가하니 사이드 바가 제대로 작동하지 않는 현상이 발생했음. 이 때, 사이드메뉴에 z-index: 1 을 걸어주니 해결되었음.
+
+## 사진 
 ```c
-*****index.html에*****
-<body>
-  <h1>Stop Watch</h1>
-  <div class="stop-watch"></div>
-  <button id="toggle">Start</button>
-  <button id="clear">Clear</button>
-    <div class="stop-watch"></div>
-  <button id="toggle">Start</button>
-  <button id="clear">Clear</button>
-  <script src="assets/js/app.js"></script>
-  <script>
-    const element = document.querySelector('.stop-watch');
-    const toggleBtn = document.querySelector('#toggle');
-    const clearBtn = document.querySelector('#clear');
-    const stopWatch = new StopWatch(element);
+<style>
+        body {
+            background-color: rgb(42, 71, 36);
 
-    toggleBtn.addEventListener('click', () => {
-      if (stopWatch.isStart) {
-        stopWatch.stop();
-        toggleBtn.innerHTML = 'Start';
-      } else {
-        stopWatch.start();
-        toggleBtn.innerHTML = 'Stop';
-      }
-    });
-
-    clearBtn.addEventListener('click', () => {
-      stopWatch.clear();
-      toggleBtn.innerHTML = 'Start';
-    });
-  </script>
-  </body>
-
-
-*****java script에서*****
-class StopWatch {
-  constructor(element) {
-    this.timer = element;
-    this.time = 0;
-    this._render();
+        }
+        * {
+    margin: 0;
+    padding: 0;
   }
-
-  get isStart() {
-    return !!this.intervalId;
+  
+  .container {
+    display: grid;
+    width: 1200px;
+    grid-template-columns: repeat(4, 300px);
+    grid-auto-rows: 400px;
+    grid-auto-flow: row dense;
+    margin: 20px auto;
   }
-
-  start() {
-    this.intervalId = setInterval(() => {
-      this.time++;
-      this._render();
-    }, 10);
+  
+  
+  img {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
   }
-
-  stop() {
-    if (this.intervalId) {
-      clearInterval(this.intervalId);
-      this.intervalId = null;
-    }
-  }
-
-  clear() {
-    this.stop();
-    this.time = 0;
-    this._render();
-  }
-  _render() {
-    const tenMs = `${this.time % 100}`.padStart(2, '0');
-    const sec = `${parseInt(this.time / 100) % 60}`.padStart(2, '0');
-    const min = `${parseInt(this.time / 6000)}`.padStart(2, '0');
-    this.timer.innerHTML = `${min}:${sec}:${tenMs}`;
-  }
+  
+  img:hover {
+    transform: scale(1.3);
+    opacity: 1;
+    z-index: 1;
 }
-```
-
-## 아이디,비먼,비번확인
-```c
-*****index.html에서*****
+.box{
+  width: 1600px;
+  height: 800px;
+  margin-top: 100px;
+  margin-left: 300px;
+}
+</style>
+----------------------------------------
 <body>
-  <h3>회원 가입</h3>
-  <form id="sign-up">
-    <label for="user-id">아이디</label><br>
-    <input type="text" name="userId" id="user-id"><br>
-    <label for="password">비밀번호</label><br>
-    <input type="password" name="password" id="password"><br>
-    <label for="confirm-password">비밀번호 확인</label><br>
-    <input type="password" name="confirmPassword" id="confirm-password"><br>
-    <input type="submit" value="회원가입">
-  </form>
-
-*****js에서*****
-    const form = document.querySelector('#sign-up');
-    form.onsubmit = function () {
-      const userId = document.querySelector('#user-id').value;
-      const password = document.querySelector('#password').value;
-      const confirmPassword = document.querySelector('#confirm-password').value;
+<div class="container box">
+      <img src=./image/11.jpg>
+      <img src=./image/12.jpg>
+      <img src=./image/13.jpg>
+      <img src=./image/14.jpg>
+      <img src=./image/15.jpg>
+      <img src=./image/16.jpg>
+      <img src=./image/17.jpg>
+      <img src=./image/18.jpg>
       
-      if (!userId.trim()) {
-        alert('아이디를 입력해주세요.');
-        return false;
-      } else if (!password) {
-        alert('비밀번호를 입력해주세요.');
-        return false;
-      } else if (password !== confirmPassword) {
-        alert('비밀번호가 일치하지 않습니다.');
-        return false;
-      }
-    };
-```
-아이디나 비번을 입력하지 않으면 ~를 입력해주세요 창이 뜬다.
+ </body>
 
-## 사소한 거
-```c
-const, let : 변수 선언 예약어
 ```
-let 은 중간에 수정 가능 const 는 불가능
+### hover: 마우스를 갖다 대면,
+
+## 키프레임
 ```c
-return;
+<style>
+       .container {
+            width: 100%;
+            height: 300px;
+
+            background-position: center center;
+            background-size: cover;
+            background-blend-mode: overlay;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container1 {
+            width: 100%;
+            height: 300px;
+            margin-left: 800px;
+            margin-top: 50px;
+
+            background-position: center center;
+            background-size: cover;
+            background-blend-mode: overlay;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container>* {
+            position: absolute;
+        }
+
+        .container>h1 {
+            top: 80px;
+            left: 100px;
+            color: white;
+            font-size: 7rem;
+            animation-name: banner-title;
+            animation-duration: 2s;
+            animation-timing-function: ease-out;
+        }
+
+
+        @keyframes banner-title {
+            from {
+                left: -50%;
+            }
+
+            to {
+                left: 200px;
+            }
+        }
+
+
+
+        .container1>p {
+            top: 150px;
+            left: 60px;
+            width: 40%;
+            color: rgb(255, 255, 255);
+            animation-name: banner-content;
+            animation-duration: 6s;
+        }
+
+
+
+
+        @keyframes banner-content {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+    ----------------------------------------
+    <div class="container">
+    <h1>Happy Birthday</h1>
+    </div>
+
+    <div class="container1">
+    <p>To. .....</p>
 ```
-함수종료
+
+### @keyframes <이름주기> ---> css에서 animation-name: <아까 준 이름> 으로 사용
